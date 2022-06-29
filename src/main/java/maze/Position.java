@@ -1,3 +1,5 @@
+package maze;
+
 import lombok.Getter;
 
 @Getter

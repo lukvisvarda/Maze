@@ -1,3 +1,6 @@
+import logic.Logic;
+import maze.Maze;
+
 import java.io.File;
 import java.util.List;
 

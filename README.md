@@ -1,1 +1,1 @@
-# Maze
+# maze.Maze

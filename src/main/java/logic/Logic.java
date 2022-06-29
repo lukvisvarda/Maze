@@ -1,3 +1,8 @@
+package logic;
+
+import maze.Maze;
+import maze.Position;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -40,13 +45,13 @@ public class Logic {
 
         private List<String> backtrackPath(Position cur, List<String> output, Position end) {
             Position iter = cur;
-            output.add(resolveDirection(end.getX() - iter.getX(), end.getY() - iter.getY()));
+            output.add(resolveDirection(end.getX() - iter.getPosition().getX(), end.getY() - iter.getPosition().getY()));
 
             while (iter != null) {
-                if(iter.position != null) {
-                    output.add(resolveDirection(iter.getX() - iter.position.x, iter.getY() - iter.position.y));
+                if(iter.getPosition() != null) {
+                    output.add(resolveDirection(iter.getX() - iter.getPosition().getX(), iter.getY() - iter.getPosition().getY()));
                 }
-                iter = iter.position;
+                iter = iter.getPosition();
             }
             return output;
         }

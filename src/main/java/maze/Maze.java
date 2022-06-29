@@ -1,3 +1,5 @@
+package maze;
+
 import lombok.Getter;
 
 import java.io.File;
@@ -14,7 +16,6 @@ public class Maze {
     private static final int START = 2;
     private static final int EXIT = 3;
     private static final int PATH = 4;
-
     private int[][] maze;
     private boolean[][] visited;
     private Position start;
