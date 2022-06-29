@@ -15,7 +15,7 @@ public class Main {
         logic(maze);
     }
 
-    private static void logic(Maze maze) {
+    private static void logic(Maze maze) throws Exception {
         Logic logic = new Logic();
         List<String> path = logic.solve(maze);
         maze.printPath(path);

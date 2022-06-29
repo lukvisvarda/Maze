@@ -42,7 +42,7 @@ public class Maze {
 
         for (int x = 0; x < getHeight(); x++) {
             if (lines[x].length() != getWidth()) {
-                throw new IllegalArgumentException("line " + (x + 1) + " wrong length (was " + lines[x].length() + " but should be " + getWidth() + ")");
+                throw new IllegalArgumentException("line " + (x + 1) + " has wrong length (was " + lines[x].length() + " but should be " + getWidth() + ")");
             }
 
             for (int y = 0; y < getWidth(); y++) {
@@ -64,10 +64,6 @@ public class Maze {
         return start;
     }
 
-    public Position getExit() {
-        return end;
-    }
-
     public int getHeight() {
         return maze.length;
     }
@@ -78,10 +74,6 @@ public class Maze {
 
     public boolean isExit(int x, int y) {
         return x == end.getX() && y == end.getY();
-    }
-
-    public boolean isStart(int x, int y) {
-        return x == start.getX() && y == start.getY();
     }
 
     public boolean isExplored(int x, int y) {

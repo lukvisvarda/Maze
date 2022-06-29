@@ -11,7 +11,7 @@ import java.util.List;
 public class Logic {
     private static final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
-    public List<String> solve(Maze maze) {
+    public List<String> solve(Maze maze) throws Exception {
         LinkedList<Position> nextToVisit = new LinkedList<>();
         List<String> output = new ArrayList<>();
         Position start = maze.getEntry();
@@ -40,7 +40,7 @@ public class Logic {
                 maze.setVisited(cur.getX(), cur.getY(), true);
             }
         }
-        return Collections.emptyList();
+        throw new Exception("Cannot reach END !!!");
     }
 
         private List<String> backtrackPath(Position cur, List<String> output, Position end) {
