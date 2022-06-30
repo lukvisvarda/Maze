@@ -10,7 +10,7 @@ import java.util.List;
 public class Logic {
     private static final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
 
-    public List<String> solve(Maze maze) throws Exception {
+    public List<String> solveShortesPath(Maze maze) throws Exception {
         LinkedList<Position> nextToVisit = new LinkedList<>();
         List<String> output = new ArrayList<>();
         Position start = maze.getEntry();
@@ -29,8 +29,7 @@ public class Logic {
             }
 
             if (maze.isExit(cur.getX(), cur.getY())) {
-                return resolvePath(cur, output, maze.getEnd());
-    //
+                return resolvePath(cur, output);
             }
 
             for (int[] direction : DIRECTIONS) {
@@ -42,7 +41,7 @@ public class Logic {
         throw new Exception("Cannot reach END !!!");
     }
 
-        private List<String> resolvePath(Position cur, List<String> output, Position end) {
+        private List<String> resolvePath(Position cur, List<String> output) {
             Position iter = cur;
 
             while (iter != null) {

@@ -4,7 +4,6 @@ import maze.Position;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 import static org.junit.Assert.*;
@@ -13,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class MazeTest {
     @Test
-    public void testResultingPath() throws Exception {
+    public void testResultingPathFromFile() throws Exception {
         File maze1 = new File("src/main/resources/maze/maze1.txt");
         String fileText = "";
         try (Scanner input = new Scanner(maze1)) {
@@ -23,7 +22,8 @@ public class MazeTest {
         }
         Maze maze = new Maze(fileText);
         Logic logic = new Logic();
-        List<String> result = logic.solve(maze);
+        List<String> result = logic.solveShortesPath(maze);
+        result = maze.reversePath(result);
         assertTrue("Solution should be equal to expected", fromStartToEnd(maze, result));
     }
 

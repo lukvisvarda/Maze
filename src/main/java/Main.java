@@ -47,8 +47,7 @@ public class Main {
 
     private static void logic(Maze maze) throws Exception {
         Logic logic = new Logic();
-        List<String> path = logic.solve(maze);
-        System.out.println(path);
+        List<String> path = logic.solveShortesPath(maze);
         path = maze.reversePath(path);
         System.out.println();
         System.out.println(path);
