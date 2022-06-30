@@ -1,10 +1,8 @@
 package logic;
 
 import maze.Maze;
-
 import java.io.File;
 import java.util.List;
-import java.util.Scanner;
 
 public abstract class AbstractFindPathReader {
 

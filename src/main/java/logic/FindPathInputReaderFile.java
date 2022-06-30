@@ -1,7 +1,6 @@
 package logic;
 
 import maze.Maze;
-
 import java.io.File;
 import java.util.Scanner;
 

@@ -2,13 +2,17 @@ package logic;
 
 import maze.Maze;
 import maze.Position;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Logic {
-    private static final int[][] DIRECTIONS = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
+    private static final int[][] DIRECTIONS = {
+            { 0, 1 },
+            { 1, 0 },
+            { 0, -1 },
+            { -1, 0 }
+    };
 
     public List<String> solveShortesPath(Maze maze) throws Exception {
         LinkedList<Position> nextToVisit = new LinkedList<>();

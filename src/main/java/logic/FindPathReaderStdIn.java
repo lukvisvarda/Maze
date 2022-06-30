@@ -1,7 +1,6 @@
 package logic;
 
 import maze.Maze;
-
 import java.io.File;
 
 public class FindPathReaderStdIn extends AbstractFindPathReader {
