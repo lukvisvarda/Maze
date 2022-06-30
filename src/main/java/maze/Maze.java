@@ -30,22 +30,22 @@ public class Maze {
         maze = new int[lines.length][lines[0].length()];
         visited = new boolean[lines.length][lines[0].length()];
 
-        for (int x = 0; x < getHeight(); x++) {
-            if (lines[x].length() != getWidth()) {
-                throw new IllegalArgumentException("line " + (x + 1) + " has wrong length (was " + lines[x].length() + " but should be " + getWidth() + ")");
+        for (int row = 0; row < getHeight(); row++) {
+            if (lines[row].length() != getWidth()) {
+                throw new IllegalArgumentException("line " + (row + 1) + " has wrong length (was " + lines[row].length() + " but should be " + getWidth() + ")");
             }
 
-            for (int y = 0; y < getWidth(); y++) {
-                if (lines[x].charAt(y) == '#')
-                    maze[x][y] = WALL;
-                else if (lines[x].charAt(y) == 'S') {
-                    maze[x][y] = START;
-                    start = new Position(x, y);
-                } else if (lines[x].charAt(y) == 'X') {
-                    maze[x][y] = EXIT;
-                    end = new Position(x, y);
+            for (int col = 0; col < getWidth(); col++) {
+                if (lines[row].charAt(col) == '#')
+                    maze[row][col] = WALL;
+                else if (lines[row].charAt(col) == 'S') {
+                    maze[row][col] = START;
+                    start = new Position(row, col);
+                } else if (lines[row].charAt(col) == 'X') {
+                    maze[row][col] = EXIT;
+                    end = new Position(row, col);
                 } else
-                    maze[x][y] = ROAD;
+                    maze[row][col] = ROAD;
             }
         }
     }
@@ -70,33 +70,27 @@ public class Maze {
         return visited[x][y];
     }
 
-    public boolean isWall(int x, int y) {
-        return maze[x][y] == WALL;
+    public boolean isWall(int row, int col) {
+        return maze[row][col] == WALL;
     }
 
-    public void setVisited(int x, int y, boolean value) {
-        visited[x][y] = value;
+    public void setVisited(int row, int col, boolean value) {
+        visited[row][col] = value;
     }
 
-    public boolean isValidLocation(int x, int y) {
-        if (x < 0 || x >= getHeight() || y < 0 || y >= getWidth()) {
+    public boolean isValidLocation(int row, int col) {
+        if (row < 0 || row >= getHeight() || col < 0 || col >= getWidth()) {
             return false;
         }
         return true;
     }
 
-    public void printPath(List<String> path) {
+    public List<String> reversePath(List<String> path) {
         List<String> output = new ArrayList<>();
-        for(int i = path.size() - 1; i > 0; i--) {
+        for(int i = path.size() - 1; i >= 0; i--) {
             output.add(path.get(i));
         }
-        System.out.println();
-        System.out.println(output);
-    }
-
-    public void reset() {
-        for (int i = 0; i < visited.length; i++)
-            Arrays.fill(visited[i], false);
+        return output;
     }
 }
 

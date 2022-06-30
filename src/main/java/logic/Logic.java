@@ -29,7 +29,7 @@ public class Logic {
             }
 
             if (maze.isExit(cur.getX(), cur.getY())) {
-                return backtrackPath(cur, output, maze.getEnd());
+                return resolvePath(cur, output, maze.getEnd());
     //
             }
 
@@ -42,9 +42,8 @@ public class Logic {
         throw new Exception("Cannot reach END !!!");
     }
 
-        private List<String> backtrackPath(Position cur, List<String> output, Position end) {
+        private List<String> resolvePath(Position cur, List<String> output, Position end) {
             Position iter = cur;
-            output.add(resolveDirection(end.getX() - iter.getPosition().getX(), end.getY() - iter.getPosition().getY()));
 
             while (iter != null) {
                 if(iter.getPosition() != null) {
