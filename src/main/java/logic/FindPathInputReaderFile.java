@@ -8,13 +8,13 @@ public class FindPathInputReaderFile extends AbstractFindPathReader{
 
     @Override
     public void execute(File text) throws Exception {
-        String fileText = "";
+        StringBuilder fileText = new StringBuilder();
         try (Scanner input = new Scanner(text)) {
             while (input.hasNextLine()) {
-                fileText += input.nextLine() + "\n";
+                fileText.append(input.nextLine()).append("\n");
             }
         }
-        Maze maze = new Maze(fileText);
+        Maze maze = new Maze(fileText.toString());
         logic(maze);
     }
 

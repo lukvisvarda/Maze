@@ -78,10 +78,7 @@ public class Maze {
     }
 
     public boolean isValidLocation(int row, int col) {
-        if (row < 0 || row >= getHeight() || col < 0 || col >= getWidth()) {
-            return false;
-        }
-        return true;
+        return row >= 0 && row < getHeight() && col >= 0 && col < getWidth();
     }
 
     public List<String> reversePath(List<String> path) {

@@ -33,7 +33,7 @@ public class Main {
             } while (rows <= 0);
             StringBuilder input = new StringBuilder();
             System.out.println("Please input your maze: ");
-            for (int i = 0; i < rows; i++) {
+            for (int i = 0; i <= rows; i++) {
                 input.append(sc.nextLine()).append("\n");
             }
             FindPathReaderStdIn maze = new FindPathReaderStdIn();
